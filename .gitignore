@@ -1,0 +1,24 @@
+# Environment variables
+.env
+
+# Node
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Prisma
+prisma/migrations/
+
+# Build / cache
+dist/
+build/
+.tmp/
+.cache/
