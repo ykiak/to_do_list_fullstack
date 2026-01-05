@@ -1,0 +1,35 @@
+{
+  "name": "to_do_list_fullstack",
+  "version": "1.0.0",
+  "description": "- Full-stack application built with JavaScript and NodeJS\r - Allows users to create, update and delete tasks\r - Database persistence and user authentication\r - This project is an evolution of https://github.com/ykiak/to-do-list (frontend-only)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec sucrase-node backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ykiak/to_do_list_fullstack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ykiak/to_do_list_fullstack/issues"
+  },
+  "homepage": "https://github.com/ykiak/to_do_list_fullstack#readme",
+  "dependencies": {
+    "@prisma/client": "^6.19.1",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "prisma": "^6.19.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11",
+    "sucrase": "^3.35.1"
+  }
+}
