@@ -20,12 +20,13 @@
 - Express
 - CORS
 - JWT
+- Bcryptjs
 - SQLite
+- Prisma
 
 ## Dev Dependencies
 - Nodemon
 - Sucrase
-- Prisma
 
 ## Status
 - This project is under development
