@@ -1,9 +1,10 @@
 import { Router } from "express"
 import { register, login } from "../controllers/UserControllers"
+import { validateRegisterRequest } from "../middlewares/user.middleware"
 
-const router = Router()
+const useRouter = Router()
 
-router.post("/register", register)
-router.get("/login", login)
+useRouter.post("/register", validateRegisterRequest, register)
+useRouter.post("/login", login)
 
-export default router
+export default useRouter
