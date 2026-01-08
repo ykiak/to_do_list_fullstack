@@ -1,14 +1,14 @@
-import { createTask, deleteTask, editTask, findTaskById, listTask, toggleCompleted } from "../services/task.service"
+import { createTask, deleteTask, editTask, filterTasksByStatus, listTask, toggleCompleted } from "../services/task.service"
 import { findUserNameById } from "../services/user.services"
 
 export async function listTaskController(req, res) {
     const userId = req.userId
-    try{
+    try {
         const tasks = await listTask(userId)
         return res.status(200).json(tasks)
     }
-    catch(error){
-        return res.status(500).json({error: "Internal server error"})
+    catch (error) {
+        return res.status(500).json({ error: "Internal server error" })
     }
 }
 
@@ -50,30 +50,45 @@ export async function editTaskController(req, res) {
 export async function deleteTaskController(req, res) {
     const taskId = Number(req.params.id)
 
-    try{
+    try {
         await deleteTask(taskId)
         return res.status(204).send()
     }
-    catch(error){
-        return res.status(500).json({error: "Internal server error"})
+    catch (error) {
+        return res.status(500).json({ error: "Internal server error" })
     }
 }
 
 export async function toggleTaskController(req, res) {
     const taskId = Number(req.params.id)
-    try{
+    try {
         const task = await toggleCompleted(taskId)
         return res.status(200).json({
             id: taskId,
             title: task.title,
             description: task.description,
             completed: task.completed,
-            createdAt: task.createdAt 
+            createdAt: task.createdAt
         })
     }
+    catch (error) {
+        if (error.message === "Task not found") {
+            return res.status(404).json({ error: error.message })
+        }
+        return res.status(500).json({ error: "Internal server error" })
+    }
+}
+
+export async function filterTasksController(req, res) {
+    const userId = req.userId
+    const { status } = req.query
+    try{
+        const tasks = await filterTasksByStatus(userId, status)
+        return res.status(200).json(tasks)
+    }
     catch(error){
-        if(error.message === "Task not found"){
-            return res.status(404).json({error: error.message})
+        if(error.message === "Invalid filter value"){
+            return res.status(400).json({error: error.message})
         }
         return res.status(500).json({error: "Internal server error"})
     }
