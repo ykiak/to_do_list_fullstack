@@ -32,3 +32,11 @@ export async function editTask(title, description, id) {
         }
     })
 }
+
+export async function deleteTask(id){
+    return prisma.task.delete({
+        where: {
+            id: id
+        }
+    })
+}
