@@ -35,6 +35,18 @@ export async function findUserByTaskId(id) {
     })
 }
 
+export async function findTaskById(id) {
+    return prisma.task.findUnique({
+        where: { id },
+        select: {
+            title: true,
+            description: true,
+            completed: true,
+            createdAt: true
+        }
+    })
+}
+
 export async function editTask(title, description, id) {
     return prisma.task.update({
         where: { id },
@@ -45,5 +57,22 @@ export async function editTask(title, description, id) {
 export async function deleteTask(id) {
     return prisma.task.delete({
         where: { id }
+    })
+}
+
+export async function toggleCompleted(id) {
+    const task = await prisma.task.findUnique({
+        where: { id }
+    })
+    //this check is unnecessary because there is a middleware
+    //that checks if a task exists by id. However, we added this to
+    //make the service independent
+    if (!task) {
+        throw new Error("Task not found")
+    }
+
+    return prisma.task.update({
+        where: { id },
+        data: { completed: !task.completed }
     })
 }

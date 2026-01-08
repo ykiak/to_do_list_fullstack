@@ -1,4 +1,4 @@
-import { createTask, deleteTask, editTask, listTask } from "../services/task.service"
+import { createTask, deleteTask, editTask, findTaskById, listTask, toggleCompleted } from "../services/task.service"
 import { findUserNameById } from "../services/user.services"
 
 export async function listTaskController(req, res) {
@@ -8,8 +8,7 @@ export async function listTaskController(req, res) {
         return res.status(200).json(tasks)
     }
     catch(error){
-        console.log(error)
-        res.status(500).json({error: "Internal server error"})
+        return res.status(500).json({error: "Internal server error"})
     }
 }
 
@@ -44,7 +43,6 @@ export async function editTaskController(req, res) {
         })
     }
     catch (error) {
-        console.log(error)
         return res.status(500).json({ error: "Internal server error" })
     }
 }
@@ -57,6 +55,26 @@ export async function deleteTaskController(req, res) {
         return res.status(204).send()
     }
     catch(error){
+        return res.status(500).json({error: "Internal server error"})
+    }
+}
+
+export async function toggleTaskController(req, res) {
+    const taskId = Number(req.params.id)
+    try{
+        const task = await toggleCompleted(taskId)
+        return res.status(200).json({
+            id: taskId,
+            title: task.title,
+            description: task.description,
+            completed: task.completed,
+            createdAt: task.createdAt 
+        })
+    }
+    catch(error){
+        if(error.message === "Task not found"){
+            return res.status(404).json({error: error.message})
+        }
         return res.status(500).json({error: "Internal server error"})
     }
 }
