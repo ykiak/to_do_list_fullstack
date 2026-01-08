@@ -1,5 +1,17 @@
-import { createTask, deleteTask, editTask } from "../services/task.service"
+import { createTask, deleteTask, editTask, listTask } from "../services/task.service"
 import { findUserNameById } from "../services/user.services"
+
+export async function listTaskController(req, res) {
+    const userId = req.userId
+    try{
+        const tasks = await listTask(userId)
+        return res.status(200).json(tasks)
+    }
+    catch(error){
+        console.log(error)
+        res.status(500).json({error: "Internal server error"})
+    }
+}
 
 export async function createTaskController(req, res) {
     const { title, description } = req.body

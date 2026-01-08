@@ -12,9 +12,7 @@ export async function findUserNameById(userId) {
 
 export async function findUserByEmail(email){
     return prisma.user.findUnique({
-        where: {
-            email: email
-        }
+        where: { email }
     })
 }
 
@@ -22,8 +20,8 @@ export async function registerUser(name, email, password){
     const hashedPassword = await bcrypt.hash(password, 10)
     return prisma.user.create({
         data: {
-            name: name,
-            email: email,
+            name,
+            email,
             password: hashedPassword
         }
     })
