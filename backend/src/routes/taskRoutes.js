@@ -1,10 +1,11 @@
 import { Router } from "express"
-import { createTasks } from "../controllers/TaskController"
+import { createTaskController, editTaskController } from "../controllers/TaskController"
 import { authMiddleware } from "../middlewares/auth.middleware"
-import { validateCreateTask } from "../middlewares/task.middleware"
+import { validateCreateOrEditTask, validateUserId } from "../middlewares/task.middleware"
 
 const taskRouter = Router()
 
-taskRouter.post("/create", authMiddleware, validateCreateTask, createTasks)
+taskRouter.post("/create", authMiddleware, validateCreateOrEditTask, createTaskController)
+taskRouter.put("/edit/:id", authMiddleware, validateUserId, validateCreateOrEditTask, editTaskController)
 
 export default taskRouter

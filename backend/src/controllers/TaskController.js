@@ -1,10 +1,10 @@
-import { createTask } from "../services/task.service"
+import { createTask, editTask } from "../services/task.service"
 import { findUserNameById } from "../services/user.services"
 
-export async function createTasks(req, res){
-    const {title, description} = req.body
+export async function createTaskController(req, res) {
+    const { title, description } = req.body
     const userId = req.userId
-    try{
+    try {
         const newTask = await createTask(title, description, userId)
         const userName = await findUserNameById(userId)
         return res.status(201).json({
@@ -14,7 +14,25 @@ export async function createTasks(req, res){
             createdBy: userName
         })
     }
-    catch(error){
-        return res.status(500).json({error: "Internal server error"})
+    catch (error) {
+        return res.status(500).json({ error: "Internal server error" })
+    }
+}
+
+export async function editTaskController(req, res) {
+    const { title, description } = req.body
+    const taskId = Number(req.params.id)
+
+    try {
+        const updatedTask = await editTask(title, description, taskId)
+        return res.status(200).json({
+            id: updatedTask.id,
+            title: updatedTask.title,
+            description: updatedTask.description
+        })
+    }
+    catch (error) {
+        console.log(error)
+        return res.status(500).json({ error: "Internal server error" })
     }
 }
