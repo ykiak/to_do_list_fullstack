@@ -40,6 +40,7 @@ export async function login(req, res) {
         return res.json({ token })
     } 
     catch (error) {
+        console.log(error)
         return res.status(500).json({ error: "Internal server error" })
     }
 }
