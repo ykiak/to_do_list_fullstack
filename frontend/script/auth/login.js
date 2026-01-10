@@ -17,7 +17,7 @@ export const login = () => {
             })
             message.textContent = "Login successful"
             localStorage.setItem("token", response.token)
-            window.location.href = "/frontend/test.html"
+            window.location.href = "/frontend/task.html"
         }
         catch (error) {
             message.textContent = error.message
