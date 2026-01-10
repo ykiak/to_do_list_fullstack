@@ -12,7 +12,7 @@ import { validateCreateOrEditTask, validateFilterRequest, validateUserId } from 
 
 const taskRouter = Router()
 
-taskRouter.get("/", authMiddleware, listTaskController)
+taskRouter.get("/list", authMiddleware, listTaskController)
 taskRouter.post("/create", authMiddleware, validateCreateOrEditTask, createTaskController)
 taskRouter.put("/edit/:id", authMiddleware, validateUserId, validateCreateOrEditTask, editTaskController)
 taskRouter.delete("/delete/:id", authMiddleware, validateUserId, deleteTaskController)

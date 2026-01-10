@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
     <link rel="stylesheet" href="style/main.css">
+    <script src="script/main.js" type="module" defer></script>
 </head>
-<body>
+<body data-page="login">
     <form>
-        <input type="email" placeholder="Email" name="email" required>
-        <input type="password" placeholder="password" name="password" required>
-        <button type="submit">Log In</button>
+        <input type="email" placeholder="Email" name="email" id="email" required>
+        <input type="password" placeholder="password" name="password" id="password" required>
+        <button type="submit" id="submitButton">Log In</button>
         <a href="/frontend/signup.html">Sign Up</a>
     </form>
+    <p id="message"></p>
 </body>
 </html>

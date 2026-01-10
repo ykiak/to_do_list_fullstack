@@ -1,12 +1,14 @@
-import { apiFetch } from "./api.js"
+import { apiFetch } from "../api/api.js"
 
 const message = document.querySelector("#message")
-const button = document.querySelector("#submitButton")
+const form = document.querySelector("form")
 
 export const signUp = () => {
-    button.addEventListener("click", async (event) => {
+    form.addEventListener("submit", async (event) => {
         event.preventDefault()
-        
+
+        message.textContent = ""
+
         const name = document.querySelector("#name").value
         const email = document.querySelector("#email").value
         const password = document.querySelector("#password").value
@@ -17,8 +19,8 @@ export const signUp = () => {
                 body: JSON.stringify({ name, email, password })
             })
             message.textContent = "User created successfully"
-            setTimeout(() =>{window.location.href = "http://127.0.0.1:5500/frontend/index.html"
-            }, 3000)
+            window.location.href = "/frontend/index.html"
+
         }
         catch (error) {
             message.textContent = error.message
