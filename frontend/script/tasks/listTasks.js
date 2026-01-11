@@ -15,11 +15,14 @@ export const listTasks = async () => {
             const doneButton = document.createElement("button")
             const li = document.createElement("li")
 
+            deleteButton.className = "delete"
+
             editButton.textContent = "Edit"
             deleteButton.textContent = "Delete"
             doneButton.textContent = "Done"
 
             li.textContent = task.title
+            li.id = task.id
 
             li.append(editButton, deleteButton, doneButton)
             list.append(li)
