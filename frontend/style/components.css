@@ -6,3 +6,17 @@ a{
     text-decoration: none;
     color: black;
 }
+label{
+    display: block;
+    margin-bottom: 10px;
+}
+button{
+    display: block;
+    margin-bottom: 10px;
+}
+.divButton{
+    display: flex;
+    gap: 5px;
+    justify-content: flex-start;
+    align-items: center;
+}

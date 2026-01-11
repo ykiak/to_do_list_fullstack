@@ -3,7 +3,7 @@ import { apiFetch } from "../api/api.js"
 const message = document.querySelector("#message")
 const form = document.querySelector("form")
 
-export const signUp = () => {
+const signUp = () => {
     form.addEventListener("submit", async (event) => {
         event.preventDefault()
 
@@ -19,7 +19,9 @@ export const signUp = () => {
                 body: JSON.stringify({ name, email, password })
             })
             message.textContent = "User created successfully"
-            window.location.href = "/frontend/index.html"
+            setTimeout(() => {
+                window.location.href = "/frontend/index.html"
+            }, 2000)
 
         }
         catch (error) {
@@ -27,3 +29,5 @@ export const signUp = () => {
         }
     })
 }
+
+signUp()

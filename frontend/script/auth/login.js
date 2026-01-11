@@ -3,7 +3,7 @@ import { apiFetch } from "../api/api.js"
 const form = document.querySelector("form")
 const message = document.querySelector("#message")
 
-export const login = () => {
+const login = () => {
     form.addEventListener("submit", async (event) => {
         event.preventDefault()
 
@@ -17,10 +17,14 @@ export const login = () => {
             })
             message.textContent = "Login successful"
             localStorage.setItem("token", response.token)
-            window.location.href = "/frontend/task.html"
+            setTimeout(() => {
+                window.location.href = "/frontend/task.html"
+            }, 2000)
         }
         catch (error) {
             message.textContent = error.message
         }
     })
 }
+
+login()

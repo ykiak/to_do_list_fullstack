@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
-    <script src="script/main.js" type="module" defer></script>
+    <link rel="stylesheet" href="style/main.css">
+    <script src="script/tasks/main.js" type="module" defer></script>
 </head>
-<body data-page="test">
+<body>
     <button id="logoutButton">Logout</button>
+    <form>
+        <label for="taskTitle">What is your new task?</label>
+        <input type="text" name="taskTitle" id="taskTitle" placeholder="e.g. Gym" required>
+        <label for="taskDescription">Add a description</label>
+        <textarea name="taskDescription" id="taskDescription" placeholder="e.g. 1 hour of training"></textarea>
+        <button type="submit">Create</button>
+    </form>
+    <p id="message"></p>
+    <ul id="list"></ul>
 </body>
 </html>
