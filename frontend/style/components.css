@@ -14,9 +14,6 @@ button{
     display: block;
     margin-bottom: 10px;
 }
-.divButton{
-    display: flex;
-    gap: 5px;
-    justify-content: flex-start;
-    align-items: center;
+.undone{
+    text-decoration: line-through;
 }
