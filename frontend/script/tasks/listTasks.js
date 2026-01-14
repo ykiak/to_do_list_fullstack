@@ -14,8 +14,9 @@ export const listTasks = async () => {
             const deleteButton = document.createElement("button")
             const doneButton = document.createElement("button")
             const li = document.createElement("li")
-            const p =document.createElement("p")
+            const p = document.createElement("p")
 
+            editButton.className = "edit"
             deleteButton.className = "delete"
             doneButton.className = task.completed ? "undoneButton" : "doneButton"
             p.className = task.completed ? "undone" : "done"
@@ -27,7 +28,7 @@ export const listTasks = async () => {
 
             li.id = task.id
 
-            li.append(editButton, deleteButton, doneButton, p)
+            li.append(p, editButton, deleteButton, doneButton)
             list.append(li)
         })
     }

@@ -9,12 +9,12 @@
 </head>
 <body>
     <button id="logoutButton">Logout</button>
-    <form>
-        <label for="taskTitle">What is your new task?</label>
+    <form data-mode="create">
+        <label for="taskTitle" id="label1">What is your new task?</label>
         <input type="text" name="taskTitle" id="taskTitle" placeholder="e.g. Gym" required>
-        <label for="taskDescription">Add a description</label>
+        <label for="taskDescription" id="label2">Add a description</label>
         <textarea name="taskDescription" id="taskDescription" placeholder="e.g. 1 hour of training"></textarea>
-        <button type="submit">Create</button>
+        <button type="submit" id="submit">Create</button>
     </form>
     <p id="message"></p>
     <ul id="list"></ul>
