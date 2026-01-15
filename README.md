@@ -4,14 +4,20 @@
 - Database persistence and user authentication
 - This project is an evolution of https://github.com/ykiak/to-do-list (frontend-only)
 
-## Goals
-- Register and log in users
-- Validate users and protect personal information
+## Features
+- Create and authenticate users using JWT
 - Create, edit and delete tasks
-- Change the status of a task
-- Filter tasks by status (finished, pending, all)
-- Search tasks (real-time search based on selected filter)
+- Mark tasks as done or undone
+- Use database to persist data (users and tasks)
+- Filter tasks by status (all, completed, pending)
 - Display the number of active tasks and their states (completed or pending)
+
+## Technical Decisions
+- Modularized architecture to simulate professional development
+- User passwords stored as encrypted strings
+- Use Prisma (v6) as ORM to simplify database access
+- Main features (create/auth users and CRUD task system) handled by the API
+- Secondary features (counter and filter) derived from sync client state
 
 ## Stack
 - HTML/CSS
