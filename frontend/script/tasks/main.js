@@ -4,6 +4,7 @@ import { deleteTasks } from "./deleteTasks.js"
 import { toggleTasks } from "./toggleTasks.js"
 import { getTaskDetails } from "./getTaskDetails.js"
 import { formController } from "./formController.js"
+import { filterTasks } from "./filterTasks.js"
 
 document.addEventListener("task:created", listTasks)
 document.addEventListener("task:deleted", listTasks)
@@ -16,3 +17,4 @@ deleteTasks()
 toggleTasks()
 getTaskDetails()
 formController()
+filterTasks()

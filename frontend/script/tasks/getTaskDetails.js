@@ -1,7 +1,7 @@
 import { apiFetch } from "../api/api.js"
+import { handleError } from "./handleError.js"
 
 const list = document.querySelector("#list")
-const message = document.querySelector("#message")
 const taskTitle = document.querySelector("#taskTitle")
 const taskDescription = document.querySelector("#taskDescription")
 const form = document.querySelector("form")
@@ -34,7 +34,7 @@ export const getTaskDetails = () => {
             form.dataset.taskId = id
         }
         catch (error) {
-            message.textContent = error.message
+            handleError(error)
         }
     })
 }

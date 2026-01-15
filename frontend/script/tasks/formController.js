@@ -1,9 +1,9 @@
 import { apiFetch } from "../api/api.js"
+import { handleError } from "./handleError.js"
 
 const form = document.querySelector("form")
 const taskTitle = document.querySelector("#taskTitle")
 const taskDescription = document.querySelector("#taskDescription")
-const message = document.querySelector("#message")
 const label1 = document.querySelector("#label1")
 const label2 = document.querySelector("#label2")
 const submitButton = document.querySelector("#submit")
@@ -46,7 +46,7 @@ export const formController = () => {
             }
         }
         catch (error) {
-            message.textContent = error.message
+            handleError(error)
         }
     })
 }

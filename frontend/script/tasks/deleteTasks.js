@@ -1,7 +1,7 @@
 import { apiFetch } from "../api/api.js"
+import { handleError } from "./handleError.js"
 
 const list = document.querySelector("#list")
-const message = document.querySelector("#message")
 
 export const deleteTasks = () => {
     list.addEventListener("click", async (event) => {
@@ -17,7 +17,7 @@ export const deleteTasks = () => {
             document.dispatchEvent(new Event("task:deleted"))
         }
         catch(error){
-            message.textContent = error.message
+            handleError(error)
         }
     })
 }

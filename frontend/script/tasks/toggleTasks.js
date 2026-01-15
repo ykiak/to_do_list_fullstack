@@ -1,7 +1,7 @@
 import { apiFetch } from "../api/api.js"
+import { handleError } from "./handleError.js"
 
 const list = document.querySelector("#list")
-const message = document.querySelector("#message")
 
 export const toggleTasks = () => {
     list.addEventListener("click", async (event) => {
@@ -19,7 +19,7 @@ export const toggleTasks = () => {
             document.dispatchEvent(new Event("task:toggled"))
         }
         catch (error) {
-            message.textContent = error.message
+            handleError(error)
         }
     })
 }
