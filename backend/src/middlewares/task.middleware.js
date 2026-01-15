@@ -33,12 +33,3 @@ export async function validateUserId(req, res, next) {
         return res.status(500).json({ error: "Internal server error" })
     }
 }
-
-export function validateFilterRequest(req, res, next){
-    const {status} = req.query
-
-    if(!status){
-        return res.status(400).json({error: "Missing filter params"})
-    }
-    next()
-}

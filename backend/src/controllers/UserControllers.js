@@ -1,7 +1,6 @@
 import { findUserByEmail, registerUser } from "../services/user.services"
 import { generateToken, verifyPassword } from "../services/auth.services"
 
-
 export async function register(req, res) {
     const { name, email, password } = req.body
     try {

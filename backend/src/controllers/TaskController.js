@@ -1,4 +1,4 @@
-import { createTask, deleteTask, editTask, filterTasksByStatus, listTask, toggleCompleted } from "../services/task.service"
+import { createTask, deleteTask, editTask, listTask, toggleCompleted } from "../services/task.service"
 import { findUserNameById } from "../services/user.services"
 
 export async function listTaskController(req, res) {
@@ -76,20 +76,5 @@ export async function toggleTaskController(req, res) {
             return res.status(404).json({ error: error.message })
         }
         return res.status(500).json({ error: "Internal server error" })
-    }
-}
-
-export async function filterTasksController(req, res) {
-    const userId = req.userId
-    const { status } = req.query
-    try{
-        const tasks = await filterTasksByStatus(userId, status)
-        return res.status(200).json(tasks)
-    }
-    catch(error){
-        if(error.message === "Invalid filter value"){
-            return res.status(400).json({error: error.message})
-        }
-        return res.status(500).json({error: "Internal server error"})
     }
 }

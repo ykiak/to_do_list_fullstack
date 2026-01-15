@@ -2,7 +2,9 @@ const list = document.querySelector("#list")
 
 export const renderTasks = (taskList) => {
     list.innerHTML = ""
+
     taskList.forEach(task => {
+
         const editButton = document.createElement("button")
         const deleteButton = document.createElement("button")
         const doneButton = document.createElement("button")
@@ -24,4 +26,5 @@ export const renderTasks = (taskList) => {
         li.append(p, editButton, deleteButton, doneButton)
         list.append(li)
     })
+
 }

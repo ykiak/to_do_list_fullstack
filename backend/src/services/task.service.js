@@ -64,39 +64,3 @@ export async function toggleCompleted(id) {
         data: { completed: !task.completed }
     })
 }
-
-export async function filterTasksByStatus(userId, status) {
-    if (status === "all") {
-        return listTask(userId)
-    } else if (status === "completed") {
-        return prisma.task.findMany({
-            where: { userId, completed: true },
-            select: {
-                id: true,
-                title: true,
-                description: true,
-                createdAt: true,
-                completed: true
-            },
-            orderBy: {
-                createdAt: "desc"
-            }
-        })
-    } else if (status === "pending") {
-        return prisma.task.findMany({
-            where: { userId, completed: false },
-            select: {
-                id: true,
-                title: true,
-                description: true,
-                createdAt: true,
-                completed: true
-            },
-            orderBy: {
-                createdAt: "desc"
-            }
-        })
-    } else {
-        throw new Error("Invalid filter value")
-    }
-}
