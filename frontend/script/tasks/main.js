@@ -1,4 +1,4 @@
-import {listTasks} from "./crud/listTasks.js"
+import { listTasks } from "./crud/listTasks.js"
 import { logout } from "../auth/logout.js"
 import { deleteTasks } from "./crud/deleteTasks.js"
 import { toggleTasks } from "./crud/toggleTasks.js"
@@ -6,6 +6,7 @@ import { getTaskDetails } from "./crud/getTaskDetails.js"
 import { formController } from "./crud/formController.js"
 import { filterTasks } from "./filter-search/filterTasks.js"
 import { renderCounter } from "./render/counter/render.js"
+import { searchTasks } from "./filter-search/searchTasks.js"
 
 document.addEventListener("task:created", listTasks)
 document.addEventListener("task:deleted", listTasks)
@@ -19,4 +20,5 @@ toggleTasks()
 getTaskDetails()
 formController()
 filterTasks()
-setTimeout(() => renderCounter(), 500)
+renderCounter()
+searchTasks()
