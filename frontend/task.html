@@ -10,23 +10,46 @@
     <script src="script/tasks/main.js" type="module" defer></script>
 </head>
 <body>
-    <button id="logoutButton">Logout</button>
-    <form data-mode="create">
-        <label for="taskTitle" id="label1">What is your new task?</label>
-        <input type="text" name="taskTitle" id="taskTitle" placeholder="e.g. Gym" required>
-        <label for="taskDescription" id="label2">Add a description</label>
-        <textarea name="taskDescription" id="taskDescription" placeholder="e.g. 1 hour of training"></textarea>
-        <button type="submit" id="submit">Create</button>
-    </form>
-    <select id="select">
-        <option value="all">All</option>
-        <option value="pending">Pending</option>
-        <option value="completed">Completed</option>
-    </select>
-    <label for="search">Search: </label>
-    <input type="text" name="search" id="search" placeholder="Task name">
-    <p id="counter"></p>
-    <p id="message"></p>
-    <ul id="list"></ul>
+    <div class="container">
+        <div class="header">
+            <h1>To-Do List</h1>
+            <button id="logoutButton">Logout</button>
+        </div>
+        <div class="main">
+            <div class="queryContainer">
+                <div class="form">
+                    <form data-mode="create">
+                        <div class="field">
+                            <label for="taskTitle" id="label1">What is your new task?</label>
+                            <input type="text" name="taskTitle" id="taskTitle" placeholder="e.g. Gym" required>
+                        </div>
+                        <div class="field">
+                            <label for="taskDescription" id="label2">Add a description</label>
+                            <textarea name="taskDescription" id="taskDescription" placeholder="e.g. 1 hour of training"></textarea>
+                        </div>
+                        <button type="submit" id="submit">Create</button>
+                    </form>
+                </div>
+                <div class="search">
+                    <div class="searchBar">
+                        <label for="search">Search: </label>
+                        <input type="text" name="search" id="search" placeholder="Task name">
+                        <select id="select">
+                            <option value="all">All</option>
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="counter">
+                        <p id="counter"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="listContainer">
+                <p id="message"></p>
+                <ul id="list"></ul>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

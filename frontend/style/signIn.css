@@ -36,12 +36,6 @@ form {
     margin: 0 auto 10px;
 }
 
-.formContainer input {
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 1rem;
-}
-
 .formContainer button {
     padding: 10px;
     font-size: 1rem;

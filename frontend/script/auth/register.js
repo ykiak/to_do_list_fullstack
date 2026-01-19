@@ -1,4 +1,5 @@
-import { apiFetch } from "../api/api.js"
+import { apiFetch } from "../api/api.js" 
+import { handleError } from "../helpers/handleError.js"
 
 const message = document.querySelector("#message")
 const form = document.querySelector("form")
@@ -19,13 +20,14 @@ const signUp = () => {
                 body: JSON.stringify({ name, email, password })
             })
             message.textContent = "User created successfully"
+            message.className = "success"
             setTimeout(() => {
                 window.location.href = "/frontend/index.html"
             }, 2000)
 
         }
         catch (error) {
-            message.textContent = error.message
+            handleError(error)
         }
     })
 }

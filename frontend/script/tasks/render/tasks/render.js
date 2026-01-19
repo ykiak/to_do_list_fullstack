@@ -4,7 +4,8 @@ export const renderTasks = (taskList) => {
     list.innerHTML = ""
 
     taskList.forEach(task => {
-        const div = document.createElement("div")
+        const tooltip = document.createElement("div")
+        const divButton = document.createElement("div")
 
         const editButton = document.createElement("button")
         const deleteButton = document.createElement("button")
@@ -13,10 +14,11 @@ export const renderTasks = (taskList) => {
         const title = document.createElement("p")
         const description = document.createElement("p")
 
-        div.className = "tooltip"
+        tooltip.className = "tooltip"
+        divButton.className = "divButton"
         editButton.className = "edit"
         deleteButton.className = "delete"
-        doneButton.className = task.completed ? "undoneButton" : "doneButton"
+        doneButton.className = "doneButton"
         title.className = task.completed ? "undone" : "done"
         description.className = "tooltipText"
 
@@ -28,8 +30,9 @@ export const renderTasks = (taskList) => {
 
         li.id = task.id
 
-        div.append(title, description)
-        li.append(div, editButton, deleteButton, doneButton)
+        tooltip.append(title, description)
+        divButton.append(editButton, deleteButton, doneButton)
+        li.append(tooltip, divButton)
         list.append(li)
     })
 

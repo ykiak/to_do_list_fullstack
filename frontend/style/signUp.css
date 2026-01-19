@@ -1,5 +1,5 @@
 /* LAYOUT */
-.container{
+.container {
     display: flex;
     height: 100%;
     flex-direction: column;
@@ -7,7 +7,7 @@
     justify-content: center;
 }
 
-.formContainer{
+.formContainer {
     height: auto;
     width: 500px;
     max-width: 90%;
@@ -18,18 +18,18 @@
 }
 
 /* COMPONENTS */
-.formContainer h1{
+.formContainer h1 {
     margin: auto;
 }
 
-.formContainer button{
+.formContainer button {
     margin: 30px auto 0 auto;
     padding: 10px;
     font-size: 1rem;
     border-radius: 10px;
 }
 
-.field{
+.field {
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -37,19 +37,13 @@
 }
 
 .field label,
-.field input{
+.field input {
     margin: 0 auto 10px;
     width: 100%;
     max-width: 300px;
 }
 
-.formContainer input{
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 1rem;
-}
-
-form{
+form {
     margin: 40px auto 0 auto;
     width: 100%;
 }
