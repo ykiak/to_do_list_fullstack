@@ -1,5 +1,5 @@
 import { apiFetch } from "../../api/api.js"
-import { handleError } from "../helpers/handleError.js"
+import { handleError } from "../../helpers/handleError.js"
 
 const list = document.querySelector("#list")
 const taskTitle = document.querySelector("#taskTitle")

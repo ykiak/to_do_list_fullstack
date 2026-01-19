@@ -5,5 +5,8 @@ export const handleError = (error) => {
         localStorage.removeItem("token")
         return window.location.href = "/frontend/index.html"
     }
+    else if (error.message === "Invalid credentials") {
+        message.className = "error"
+    }
     message.textContent = error.message
 }

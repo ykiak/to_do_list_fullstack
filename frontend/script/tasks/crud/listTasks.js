@@ -1,5 +1,5 @@
 import { apiFetch } from "../../api/api.js"
-import { handleError } from "../helpers/handleError.js"
+import { handleError } from "../../helpers/handleError.js"
 import { renderTasks } from "../render/tasks/render.js"
 import { tasks } from "../counter/state.js"
 import { renderCounter } from "../render/counter/render.js"

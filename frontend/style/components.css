@@ -3,7 +3,6 @@ input{
     margin-bottom: 10px;
 }
 a{
-    text-decoration: none;
     color: black;
 }
 label{
@@ -13,26 +12,4 @@ label{
 button{
     display: block;
     margin-bottom: 10px;
-}
-.undone{
-    text-decoration: line-through;
-}
-.tooltip{
-    position: relative;
-    display: inline-block;
-}
-.tooltipText{
-    visibility: hidden;
-    background-color: black;
-    color: white;
-    text-align: center;
-    width: 130px;
-    z-index: 1;
-    top: -5px;
-    left: 110%;
-    position: absolute;
-    padding: 5px 0;
-}
-.tooltip:hover .tooltipText{
-    visibility: visible;
 }

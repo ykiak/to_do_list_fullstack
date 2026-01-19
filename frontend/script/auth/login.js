@@ -1,4 +1,5 @@
 import { apiFetch } from "../api/api.js"
+import { handleError } from "../helpers/handleError.js"
 
 const form = document.querySelector("form")
 const message = document.querySelector("#message")
@@ -16,13 +17,14 @@ const login = () => {
                 body: JSON.stringify({ email, password })
             })
             message.textContent = "Login successful"
+            message.className = "success"
             localStorage.setItem("token", response.token)
             setTimeout(() => {
                 window.location.href = "/frontend/task.html"
             }, 2000)
         }
         catch (error) {
-            message.textContent = error.message
+            handleError(error)
         }
     })
 }
