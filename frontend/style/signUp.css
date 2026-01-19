@@ -1,0 +1,55 @@
+/* LAYOUT */
+.container{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.formContainer{
+    height: auto;
+    width: 500px;
+    max-width: 90%;
+    min-height: 500px;
+    display: grid;
+    grid-template-rows: 0.2fr 0.8fr;
+    border: 1px solid black;
+}
+
+/* COMPONENTS */
+.formContainer h1{
+    margin: auto;
+}
+
+.formContainer button{
+    margin: 30px auto 0 auto;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.field label,
+.field input{
+    margin: 0 auto 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.formContainer input{
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+form{
+    margin: 40px auto 0 auto;
+    width: 100%;
+}
