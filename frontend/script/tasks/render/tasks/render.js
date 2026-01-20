@@ -1,7 +1,9 @@
 const list = document.querySelector("#list")
+const message = document.querySelector("#message")
 
 export const renderTasks = (taskList) => {
     list.innerHTML = ""
+    message.textContent = ""
 
     taskList.forEach(task => {
         const tooltip = document.createElement("div")
@@ -22,11 +24,15 @@ export const renderTasks = (taskList) => {
         title.className = task.completed ? "undone" : "done"
         description.className = "tooltipText"
 
+        editButton.disabled = task.completed
+        deleteButton.disabled = false
+        doneButton.disabled = false
+
         editButton.textContent = "Edit"
         deleteButton.textContent = "Delete"
         doneButton.textContent = task.completed ? "Undone" : "Done"
         title.textContent = task.title
-        description.textContent = task.description
+        description.textContent = task.description ? task.description : "No description"
 
         li.id = task.id
 

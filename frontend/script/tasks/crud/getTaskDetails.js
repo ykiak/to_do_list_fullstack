@@ -14,6 +14,11 @@ export const getTaskDetails = () => {
         const editButton = event.target.closest(".edit")
         if (!editButton) return
 
+        const deleteButton = editButton.nextElementSibling
+        deleteButton.disabled = true
+        const doneButton = deleteButton.nextElementSibling
+        doneButton.disabled = true
+
         const li = editButton.closest("li")
         const id = Number(li.id) //li.id is a string
 

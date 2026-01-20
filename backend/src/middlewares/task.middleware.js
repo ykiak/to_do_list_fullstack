@@ -6,6 +6,9 @@ export function validateCreateOrEditTask(req, res, next) {
     if (!title) {
         return res.status(400).json({ error: "Missing information" })
     }
+    else if(title.trim().length === 0){
+        return res.status(400).json({error: "Empty title is not valid"})
+    }
 
     next()
 }
