@@ -1,4 +1,4 @@
-import { createTask, deleteTask, editTask, listTask, toggleCompleted } from "../services/task.servicejs"
+import { createTask, deleteTask, editTask, listTask, toggleCompleted } from "../services/task.service.js"
 import { findUserNameById } from "../services/user.services.js"
 
 export async function listTaskController(req, res) {
