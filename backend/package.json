@@ -1,11 +1,9 @@
 {
-  "name": "to_do_list_fullstack",
+  "name": "to_do_list_backend",
   "version": "1.0.0",
-  "description": "- Full-stack application built with JavaScript and NodeJS\r - Allows users to create, update and delete tasks\r - Database persistence and user authentication\r - This project is an evolution of https://github.com/ykiak/to-do-list (frontend-only)",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "dev": "nodemon --exec sucrase-node backend/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec sucrase-node src/server.js",
     "start": "node src/server.js",
     "postinstall": "prisma generate"
   },
