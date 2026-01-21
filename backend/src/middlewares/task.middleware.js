@@ -1,4 +1,4 @@
-import { findUserByTaskId } from "../services/task.service"
+import { findUserByTaskId } from "../services/task.service.js"
 
 export function validateCreateOrEditTask(req, res, next) {
     const title = req.body.title
