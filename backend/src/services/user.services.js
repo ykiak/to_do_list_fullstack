@@ -1,4 +1,4 @@
-import { prisma } from "../database/prisma"
+import { prisma } from "../database/prisma.js"
 import bcrypt from "bcryptjs"
 
 export async function findUserNameById(userId) {

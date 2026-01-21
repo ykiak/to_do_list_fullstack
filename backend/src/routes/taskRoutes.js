@@ -5,9 +5,9 @@ import {
     deleteTaskController,
     listTaskController,
     toggleTaskController,
-} from "../controllers/TaskController"
-import { authMiddleware } from "../middlewares/auth.middleware"
-import { validateCreateOrEditTask, validateUserId } from "../middlewares/task.middleware"
+} from "../controllers/TaskController.js"
+import { authMiddleware } from "../middlewares/auth.middleware.js"
+import { validateCreateOrEditTask, validateUserId } from "../middlewares/task.middleware.js"
 
 const taskRouter = Router()
 

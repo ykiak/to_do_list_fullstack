@@ -1,4 +1,4 @@
-import { prisma } from "../database/prisma"
+import { prisma } from "../database/prisma.js"
 
 export async function listTask(userId) {
     return prisma.task.findMany({

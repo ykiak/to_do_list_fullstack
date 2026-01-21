@@ -1,5 +1,5 @@
-import { findUserByEmail, registerUser } from "../services/user.services"
-import { generateToken, verifyPassword } from "../services/auth.services"
+import { findUserByEmail, registerUser } from "../services/user.services.js"
+import { generateToken, verifyPassword } from "../services/auth.services.js"
 
 export async function register(req, res) {
     const { name, email, password } = req.body
